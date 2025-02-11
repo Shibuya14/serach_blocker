@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>検索ブロッカー設定</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input, button, select { margin: 5px; padding: 8px; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 5px 0; padding: 5px; background: #f8f9fa; display: flex; justify-content: space-between; }
+        .delete-btn { color: red; cursor: pointer; }
+        .edit-input { display: none; margin-left: 5px; }
+    </style>
+</head>
+<body>
+    <h2>ブロックするキーワードを設定</h2>
+    <input type="text" id="keywordInput" placeholder="キーワードを入力">
+    <button id="addKeyword">追加</button>
+    <ul id="keywordList"></ul>
+
+    <h2>ブロック条件</h2>
+    <label><input type="radio" name="matchType" value="partial" checked> 部分一致</label>
+    <label><input type="radio" name="matchType" value="exact"> 完全一致</label>
+
+    <h2>ブロック時間設定</h2>
+    <label>開始時間: <input type="time" id="startTime"></label>
+    <label>終了時間: <input type="time" id="endTime"></label>
+    <h3>ブロックする曜日:</h3>
+    <label><input type="checkbox" class="weekday" value="0"> 日</label>
+    <label><input type="checkbox" class="weekday" value="1"> 月</label>
+    <label><input type="checkbox" class="weekday" value="2"> 火</label>
+    <label><input type="checkbox" class="weekday" value="3"> 水</label>
+    <label><input type="checkbox" class="weekday" value="4"> 木</label>
+    <label><input type="checkbox" class="weekday" value="5"> 金</label>
+    <label><input type="checkbox" class="weekday" value="6"> 土</label>
+
+    <h2>リダイレクト先URL</h2>
+    <input type="text" id="redirectUrl" placeholder="https://www.google.com/">
+
+    <button id="saveSettings">保存</button>
+
+    <script src="options.js"></script>
+</body>
+</html>
