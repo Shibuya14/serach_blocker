@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             keywordList.innerHTML = "";
             keywords.forEach((keyword, index) => {
                 const li = document.createElement("li");
+                li.classList.add("blocked_li");
 
                 // キーワード表示用
                 const keywordSpan = document.createElement("span");

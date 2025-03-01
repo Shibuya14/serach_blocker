@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>検索ブロッカー設定</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <style>
+        .week-item {
+            flex: 1; /* 均等なサイズにする */
+        }
+        .week-item label {
+            width: 100%; /* ボタンの幅を最大化 */
+            text-align: center; /* テキストを中央揃え */
+        }
+        .blocked_ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .blocked_li {
+            margin: 5px 0;
+            padding: 5px;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+        }
+        .delete-btn {
+            color: red;
+            cursor: pointer;
+        }
+        .edit-input {
+            display: none;
+            margin-left: 5px;
+        }
+        .btn-check {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .week-item {
+            margin: 17px 4px;
+        }
+
+        /* ボタンのスタイル */
+        .week-btn {
+            border-radius: 50%; /* 丸い形にする */
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            border: 2px solid #4CAF50;
+            background-color: white;
+            color: #4CAF50;
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* 選択時のスタイル */
+        .btn-check:checked + .week-btn {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+
+        /* ボタンの間隔調整 */
+        .btn-group label {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="sidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="options.html">
+                <div class="sidebar-brand-icon">
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
+                    <i class="fas fa-ban"></i>
+                    <!-- <i class="fa-solid fa-house"></i> -->
+                </div>
+                <div class="sidebar-brand-text mx-3">block</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="options.html">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Others</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Settings</h1>
+                    </div>
+
+                    <!-- Block Rules -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header text-primary fw-bold">Block Rules</div>
+                        <div class="card-body">
+                            <!-- Matching Settings -->
+                            <div class="mb-4">
+                                <label class="form-label fw-bold text-primary mb-2">Matching Settings</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="matchType" value="partial" checked>
+                                    <label class="form-check-label">Partial Match</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="matchType" value="exact">
+                                    <label class="form-check-label">Exact Match</label>
+                                </div>
+                            </div>
+
+                            <!-- Redirect Settings -->
+                            <div class="mb-4">
+                                <label class="form-label fw-bold text-primary mb-2">Redirect Settings</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="redirectUrl" placeholder="https://www.google.com/">
+                                    <button class="btn btn-primary" id="saveSettings">save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Block Schedule -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header text-primary fw-bold">Block Schedule</div>
+                        <div class="card-body">
+                            <!-- Block Time -->
+                            <div class="mb-4">
+                                <label class="form-label fw-bold text-primary mb-2">Block Time</label>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="time" class="form-control" id="startTime">
+                                    </div>
+                                    <div class="col-auto d-flex align-items-center">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    <div class="col">
+                                        <input type="time" class="form-control" id="endTime">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Block Day of Week -->
+                            <div class="mb-4">
+                                <label class="form-label fw-bold text-primary mb-2">Block Day of Week</label>
+                                <div class="btn-group d-flex" role="group">
+                                    <div class="week-item">
+                                        <input type="checkbox" class="btn-check weekday" id="sun" value="0">
+                                        <label class="btn btn-outline-primary flex-fill" for="sun">Sun</label>
+                                    </div>
+                                    <div class="week-item">
+                                        <input type="checkbox" class="btn-check weekday" id="mon" value="1">
+                                        <label class="btn btn-outline-primary flex-fill" for="mon">Mon</label>
+                                    </div>
+                                    <div class="week-item">
+                                        <input type="checkbox" class="btn-check weekday" id="tue" value="2">
+                                        <label class="btn btn-outline-primary flex-fill" for="tue">Tue</label>
+                                    </div>
+                                    <div class="week-item">
+                                        <input type="checkbox" class="btn-check weekday" id="wed" value="3">
+                                        <label class="btn btn-outline-primary flex-fill" for="wed">Wed</label>
+                                    </div>
+                                    <div class="week-item">
+                                        <input type="checkbox" class="btn-check weekday" id="thu" value="4">
+                                        <label class="btn btn-outline-primary flex-fill" for="thu">Thu</label>
+                                    </div>
+                                    <div class="week-item">
+                                        <input type="checkbox" class="btn-check weekday" id="fri" value="5">
+                                        <label class="btn btn-outline-primary flex-fill" for="fri">Fri</label>
+                                    </div>
+                                    <div class="week-item">
+                                        <input type="checkbox" class="btn-check weekday" id="sat" value="6">
+                                        <label class="btn btn-outline-primary flex-fill" for="sat">Sat</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ========================================================================================= -->
+
+                    <!-- ========================================================================================= -->
+                </div>
+            </div>
+            <!-- End of Main Content -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">add keyword</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="keywordInput" placeholder="キーワードを入力">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button id="addKeyword">追加</button>
+                    <!-- <a class="btn btn-primary" href="login.html">Logout</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="options.js"></script>
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- <h2>ブロックするキーワードを設定</h2> -->
+    <!-- <input type="text" id="keywordInput" placeholder="キーワードを入力"> -->
+    <!-- <button id="addKeyword">追加</button> -->
+    <!-- <ul id="keywordList"></ul> -->
+</body>
+</html>
