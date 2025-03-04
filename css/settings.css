@@ -1,0 +1,63 @@
+.week-item {
+    flex: 1; /* 均等なサイズにする */
+}
+.week-item label {
+    width: 100%; /* ボタンの幅を最大化 */
+    text-align: center; /* テキストを中央揃え */
+}
+.blocked_ul {
+    list-style-type: none;
+    padding: 0;
+}
+.blocked_li {
+    margin: 5px 0;
+    padding: 5px;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+}
+.delete-btn {
+    color: red;
+    cursor: pointer;
+}
+.edit-input {
+    display: none;
+    margin-left: 5px;
+}
+.btn-check {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.week-item {
+    margin: 17px 4px;
+}
+
+/* ボタンのスタイル */
+.week-btn {
+    border-radius: 50%; /* 丸い形にする */
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    border: 2px solid #4CAF50;
+    background-color: white;
+    color: #4CAF50;
+    transition: all 0.2s ease-in-out;
+}
+
+/* 選択時のスタイル */
+.btn-check:checked + .week-btn {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+/* ボタンの間隔調整 */
+.btn-group label {
+    margin: 0 5px;
+}

@@ -1,2 +1,2 @@
 # 概要
-- 特定キーワードによる検索をブロックする拡張機能
+- Extension to block searches by arbitrary keywords

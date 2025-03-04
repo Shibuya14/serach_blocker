@@ -1,80 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>検索ブロッカー設定</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <style>
-        .blocked_ul { list-style-type: none; padding: 0; }
-        .blocked_li { margin: 5px 0; padding: 5px; background: #f8f9fa; display: flex; justify-content: space-between; }
-        .delete-btn { color: red; cursor: pointer; }
-        .edit-input { display: none; margin-left: 5px; }
-    </style>
+    <script src="js/head.js"></script>
+    <link href="css/others.css" rel="stylesheet">
 </head>
 <body>
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="sidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="options.html">
-                <div class="sidebar-brand-icon">
-                    <!-- <i class="fas fa-laugh-wink"></i> -->
-                    <i class="fas fa-ban"></i>
-                    <!-- <i class="fa-solid fa-house"></i> -->
-                </div>
-                <div class="sidebar-brand-text mx-3">block</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="options.html">
-                    <i class="fas fa-fw fa-home"></i>
-                    <span>Home</span>
-                </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="settings.html">
-                    <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Others</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
+        <!-- nav bar -->
+        <div id="navbar"></div>
+        <script src="js/navbar.js"></script>
+        <!-- End of nav bar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -123,12 +60,8 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <script src="options.js"></script>
 </body>
 </html>

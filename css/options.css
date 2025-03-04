@@ -1,0 +1,4 @@
+.blocked_ul { list-style-type: none; padding: 0; }
+.blocked_li { margin: 5px 0; padding: 5px; background: #f8f9fa; display: flex; justify-content: space-between; }
+.delete-btn { color: rgb(233, 31, 31); cursor: pointer; }
+.edit-input { display: none; margin-left: 5px; }
