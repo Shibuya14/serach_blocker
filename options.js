@@ -32,9 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 // 削除ボタン
-                const deleteBtn = document.createElement("span");
-                deleteBtn.textContent = " ❌";
-                deleteBtn.classList.add("delete-btn");
+                const deleteBtn = document.createElement("i");
+                deleteBtn.classList.add("fas", "fa-fw", "fa-times", "delete-btn");
+                deleteBtn.style.cursor = "pointer"; // カーソルをポインターにする
                 deleteBtn.addEventListener("click", () => removeKeyword(index));
 
                 li.appendChild(keywordSpan);

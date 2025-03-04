@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(scheSettings.weekdays);
 
         chrome.storage.sync.set({ scheduleSettings: scheSettings, matchType: matchType, redirectUrl: redirectUrl }, () => {
-            alert("設定を保存しました！");
+            alert("save settings");
         });
     });
 
