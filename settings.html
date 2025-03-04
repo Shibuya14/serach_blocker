@@ -84,58 +84,13 @@
     </style>
 </head>
 <body>
-    
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="sidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="options.html">
-                <div class="sidebar-brand-icon">
-                    <!-- <i class="fas fa-laugh-wink"></i> -->
-                    <i class="fas fa-ban"></i>
-                    <!-- <i class="fa-solid fa-house"></i> -->
-                </div>
-                <div class="sidebar-brand-text mx-3">block</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="options.html">
-                    <i class="fas fa-fw fa-home"></i>
-                    <span>Home</span>
-                </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Others</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
+        <!-- nav bar -->
+        <div id="navbar"></div>
+        <script src="navbar.js"></script>
+        <!-- End of nav bar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -277,22 +232,13 @@
     </div>
 
 
-    <script src="options.js"></script>
-    <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- <h2>ブロックするキーワードを設定</h2> -->
-    <!-- <input type="text" id="keywordInput" placeholder="キーワードを入力"> -->
-    <!-- <button id="addKeyword">追加</button> -->
-    <!-- <ul id="keywordList"></ul> -->
+    <script src="settings.js"></script>
 </body>
 </html>
